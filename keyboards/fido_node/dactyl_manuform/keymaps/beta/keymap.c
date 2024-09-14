@@ -9,7 +9,12 @@
 #define _R 2
 #define _S 3
 
-#define TAPPING_TERM 200
+#undef TAPPING_TERM
+// default but used in macros
+#define TAPPING_TERM 250
+
+// Prevent normal rollover on alphas from accidentally triggering mods.
+#define IGNORE_MOD_TAP_INTERRUPT
 
 // Left-hand home row mods
 #define H_LC(K)    LCTL_T(K)
@@ -75,38 +80,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // clang-format off
     [_B] = LAYOUT(
                         KC_GRAVE,           KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,
-                        KC_TR,              H_LC(KC_A),     H_LA(KC_S),     H_LG(KC_D),     H_LS(KC_F),     H_H(KC_G),
+                        KC_CAPS,            H_LC(KC_A),     H_LA(KC_S),     H_LG(KC_D),     H_LS(KC_F),     H_H(KC_G),
                         KC_TR,              KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,
-                        KC_CAPS,            KC_TR,          KC_TR,          KC_TR,          LT_R(KC_TAB),   LSFT_T(KC_SPC),     LT_L(KC_ENT),
+                        KC_CAPS,            KC_TR,          KC_TR,          KC_TR,          LT_R(KC_TAB),   KC_SPC,             LT_L(KC_ENT),
 
                         KC_Y,               KC_U,           KC_I,           KC_O,           KC_P,           KC_LEFT_BRACKET,
                         H_H(KC_H),          H_RS(KC_J),     H_RG(KC_K),     H_RA(KC_L),     H_RC(KC_SCLN),  KC_QUOTE,
                         KC_N,               KC_M,           KC_COMM,        KC_DOT,         KC_SLASH,       KC_BACKSLASH,
-        LT_L(KC_ESC),   LSFT_T(KC_BSPC),    LT_R(KC_DEL),   KC_RCBR,        KC_TR,          KC_TR,          KC_TR
+        LT_L(KC_ESC),   KC_BSPC,            LT_R(KC_DEL),   KC_RCBR,        KC_TR,          KC_TR,          KC_TR
     ),
 
     [_L] = LAYOUT(
                         KC_UNDS,            KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,
                         KC_PLUS,            H_LC(KC_EXLM),  H_LA(KC_AT),    H_LG(KC_HASH),  H_LS(KC_DLR),   H_H(KC_PERC),
                         KC_PEQL,            KC_1,           KC_2,           KC_3,           KC_4,           KC_5,
-                        KC_TR,              KC_TR,          KC_TR,          KC_TR,          KC_TR,          LSFT_T(KC_SPC),     KC_TR,
+                        KC_TR,              KC_TR,          KC_TR,          KC_TR,          KC_TR,          KC_SPC,             KC_TR,
 
                         KC_F6,              KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
                         H_H(KC_CIRC),       H_RS(KC_AMPR),  H_RG(KC_ASTR),  H_RA(KC_LPRN),  H_LS(KC_RPRN),  KC_KP_MINUS,
                         KC_6,               KC_7,           KC_8,           KC_9,           KC_0,           KC_TR,
-        KC_TR,          LSFT_T(KC_BSPC),    KC_TR,          KC_F12,         KC_TR,          KC_TR,          KC_TR
+        KC_TR,          KC_BSPC,            KC_TR,          KC_F12,         KC_TR,          KC_TR,          KC_TR
     ),
 
     [_R] = LAYOUT(
                         KC_NUM,             KC_PSLS,        KC_7,           KC_8,           KC_9,           KC_PMNS,
                         KC_PEQL,            H_LC(KC_PAST),  H_LA(KC_4),     H_LG(KC_5),     H_LS(KC_6),     H_H(KC_PPLS),
                         KC_TR,              KC_0,           KC_1,           KC_2,           KC_3,           KC_PDOT,
-                        KC_TR,              KC_TR,          KC_TR,          KC_TR,          KC_TR,          LSFT_T(KC_SPC),     KC_TR,
+                        KC_TR,              KC_TR,          KC_TR,          KC_TR,          KC_TR,          KC_SPC,             KC_TR,
 
                         KC_VOLU,            KC_HOME,        KC_PSCR,        KC_PGUP,        KC_SCRL,        KC_CAPS,
                         H_H(KC_MUTE),       H_RS(KC_LEFT),  H_RG(KC_UP),    H_RA(KC_RIGHT), H_LS(KC_INS),   KC_APP,
                         KC_VOLD,            KC_END,         KC_DOWN,        KC_PGDN,        KC_PAUS,        KC_TR,
-        KC_TR,          LSFT_T(KC_BSPC),    KC_TR,          KC_TR,          KC_TR,          KC_TR,          KC_TR
+        KC_TR,          KC_BSPC,            KC_TR,          KC_TR,          KC_TR,          KC_TR,          KC_TR
     ),
 
     [_S] = LAYOUT(
